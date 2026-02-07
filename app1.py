@@ -19,7 +19,7 @@ from ai_shield.waf.behavior_monitor import BehaviorMonitor
 configure_logging()
 logger = logging.getLogger(__name__)
 
-st.set_page_config(page_title="Deriv's AI Shield", layout="wide")
+st.set_page_config(page_title="Deriv AI Shield", layout="wide")
 st.markdown(
     """
     <style>
@@ -215,16 +215,6 @@ with tab2:
         st.json(summary)
         st.code(markdown_report, language="markdown")
         st.write(f"Saved reports: {paths}")
-        pdf_bytes = b""
-        if paths.get("pdf"):
-            with open(paths["pdf"], "rb") as handle:
-                pdf_bytes = handle.read()
-        st.download_button(
-            "Download PDF Report",
-            data=pdf_bytes,
-            file_name=paths.get("pdf", "pentest_report.pdf"),
-            disabled=not pdf_bytes,
-        )
         blocked = sum(1 for record in records if record.blocked)
         unblocked = len(records) - blocked
         st.subheader("Blocked vs Unblocked")
@@ -258,4 +248,3 @@ with tab3:
             with st.expander(f"{record.category} | Severity {record.severity} | Blocked {record.blocked}"):
                 st.write(f"Payload: {record.payload}")
                 st.write(f"Vulnerability Score: {record.vulnerability_score}")
-

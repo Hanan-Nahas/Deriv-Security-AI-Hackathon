@@ -15,7 +15,5 @@ setup(
         "numpy>=1.24.0",
         "openai>=1.35.0",
         "faiss-cpu>=1.7.4",
-        "reportlab>=4.0.9",
     ],
 )
-
