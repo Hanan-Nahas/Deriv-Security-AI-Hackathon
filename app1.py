@@ -19,7 +19,7 @@ from ai_shield.waf.behavior_monitor import BehaviorMonitor
 configure_logging()
 logger = logging.getLogger(__name__)
 
-st.set_page_config(page_title="Deriv AI Shield", layout="wide")
+st.set_page_config(page_title="Deriv's AI Shield", layout="wide")
 st.markdown(
     """
     <style>
